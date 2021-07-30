@@ -20,6 +20,10 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private Integer enabled;
+    private Integer accountExpired;
+    private Integer credentialExpired;
+    private Integer accountLocked;
     private Collection<? extends GrantedAuthority> authorities;
 
     public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
@@ -30,21 +34,22 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return accountExpired == 0;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return accountLocked == 0;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return credentialExpired == 0;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled == 1;
     }
+
 }
