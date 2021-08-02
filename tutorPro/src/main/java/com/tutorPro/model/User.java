@@ -20,10 +20,12 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private String role;
     private Integer enabled;
     private Integer accountExpired;
     private Integer credentialExpired;
     private Integer accountLocked;
+    private double rating;
     private Collection<? extends GrantedAuthority> authorities;
 
     public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
